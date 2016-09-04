@@ -43,9 +43,9 @@ The following are valid shortcodes:
   - `[pubmed>long:11111,22222]`
   - `[pubmed>summary:11111,22222,33333]`
 
-These are block elements. Each shortcode is replaced by a `<div>` containing the data.
+These are block elements. Each shortcode is replaced by a `<div>` containing the data. The expanded shortcode *is* cached.
 
-The expanded shortcode *is* cached.
+You can customize the exact contents of the `short` and `long` citation as described in the **Configuration** section. The `summary` report is a raw dump of the returned JSON data from the E-utils service.
 
 ## Configuration
 
