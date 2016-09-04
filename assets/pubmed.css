@@ -1,0 +1,34 @@
+/* Customize the entry container, duplicated for each shortcode */
+.pubmed {
+}
+
+/* The different fields are enclosed by spans that you customize here */
+.pubmed .title {
+}
+
+.pubmed .authors {
+}
+
+.pubmed .journal {
+}
+
+.pubmed .etal {
+}
+
+.pubmed .volume {
+}
+
+.pubmed .pages {
+}
+
+.pubmed .date {
+}
+
+/* Customize the summary XML output */
+.pubmed pre {	
+}
+
+/* Each record is also enclosed by a paragraph tag. Here you can customize the spacing between multiple records and other such things */
+.pubmed p {
+
+}

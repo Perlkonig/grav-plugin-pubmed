@@ -1,0 +1,36 @@
+name: Pubmed
+version: 1.0.0
+description: Adds Pubmed citations pulled from the E-utils API
+icon: heartbeat
+author:
+  name: Aaron Dalton
+  email: aaron@daltons.ca
+homepage: https://github.com/aaron-dalton/grav-plugin-pubmed
+keywords: grav, plugin, pubmed, bibliography, citations
+bugs: https://github.com/aaron-dalton/grav-plugin-pubmed/issues
+readme: https://github.com/aaron-dalton/grav-plugin-pubmed/blob/develop/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    active:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool

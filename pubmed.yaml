@@ -1,0 +1,21 @@
+enabled: true
+active: false
+
+# Formats are a string that only contain 
+#   - valid field names enclosed in square brackets
+#   - line breaks encoded as the string "\n"
+#   - other literals (printed as is)
+#
+# Valid field names are as follows (case sensitive!)
+#   - title
+#   - authors_long
+#   - authors_short
+#   - journal
+#   - volume
+#   - pages
+#   - date
+
+formats:
+  short: "[authors_short] [journal] [volume] [pages] [date]"
+  long: "[title]\n[authors_long] [journal] [volume] [pages] [date]"
+  author_sep: ", "  # string that is inserted between list of authors when using [authors_long]
