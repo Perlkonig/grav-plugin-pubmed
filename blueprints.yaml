@@ -5,10 +5,10 @@ icon: heartbeat
 author:
   name: Aaron Dalton
   email: aaron@daltons.ca
-homepage: https://github.com/aaron-dalton/grav-plugin-pubmed
+homepage: https://github.com/Perlkonig/grav-plugin-pubmed
 keywords: grav, plugin, pubmed, bibliography, citations
-bugs: https://github.com/aaron-dalton/grav-plugin-pubmed/issues
-readme: https://github.com/aaron-dalton/grav-plugin-pubmed/blob/develop/README.md
+bugs: https://github.com/Perlkonig/grav-plugin-pubmed/issues
+readme: https://github.com/Perlkonig/grav-plugin-pubmed/blob/master/README.md
 license: MIT
 
 form:
