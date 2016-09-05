@@ -43,9 +43,13 @@ The following are valid shortcodes:
   - `[pubmed>long:11111,22222]`
   - `[pubmed>summary:11111,22222,33333]`
 
-These are block elements. Each shortcode is replaced by a `<div>` containing the data. The expanded shortcode *is* cached.
+These are block elements. Each shortcode is replaced by a `<div>` containing the data. 
+
+The expanded shortcode *is* cached. The UID string and results are also cached so that if you have multiple pages citing the same UID string, only one external API call will be made.
 
 You can customize the exact contents of the `short` and `long` citation as described in the **Configuration** section. The `summary` report is a raw dump of the returned JSON data from the E-utils service.
+
+If an error occurs, the `short` or `long` output will be replaced by a message stating there was a problem fetching that UID.
 
 ## Configuration
 
@@ -61,6 +65,7 @@ active: false
 #   - other literals (printed as is)
 #
 # Valid field names are as follows (case sensitive!)
+#   - uid
 #   - title
 #   - authors_long
 #   - authors_short

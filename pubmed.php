@@ -53,11 +53,9 @@ class PubmedPlugin extends Plugin
         }
 
         $defaults = (array) $this->config->get('plugins.pubmed');
-        dump($defaults);
         /** @var Page $page */
         $page = $this->grav['page'];
         if (isset($page->header()->pubmed)) {
-            dump($page->header()->pubmed);
             $this->config->set('plugins.pubmed', array_merge($defaults, $page->header()->pubmed));
         }
         if ($this->config->get('plugins.pubmed.active')) {
@@ -93,8 +91,7 @@ class PubmedPlugin extends Plugin
                 $ids = $matches[2];
 
                 //Fetch the data
-                $this->pubmed->get_summary($ids);
-
+                $this->pubmed->get_summary($this->grav['cache'], $ids);
                 $recs = '';
                 if ($cmd === 'summary') {
                     /*
@@ -111,26 +108,30 @@ class PubmedPlugin extends Plugin
                     //Build individual records
                     $format = $this->config->get('plugins.pubmed.formats.' . $cmd);
                     foreach ($this->pubmed->extract as $record) {
-                        $text = $format;
-                        $text = str_replace('\n', '<br>', $text);
-                        foreach (['title', 'authors_short', 'authors_long', 'journal', 'volume', 'pages', 'date'] as $field) {
-                            $replacement = '';
-                            if ($field === 'authors_short') {
-                                $authorstr = htmlspecialchars($record['authors'][0]);
-                                if (count($record['authors']) > 1) {
-                                    $authorstr = $authorstr . ' <span class="etal">et al.</span>';
+                        if (array_key_exists('error', $record)) {
+                            $text = '<strong>' . htmlspecialchars($record['error']) . '</strong>';
+                        } else {
+                            $text = $format;
+                            $text = str_replace('\n', '<br>', $text);
+                            foreach (['uid', 'title', 'authors_short', 'authors_long', 'journal', 'volume', 'pages', 'date'] as $field) {
+                                $replacement = '';
+                                if ($field === 'authors_short') {
+                                    $authorstr = htmlspecialchars($record['authors'][0]);
+                                    if (count($record['authors']) > 1) {
+                                        $authorstr = $authorstr . ' <span class="etal">et al.</span>';
+                                    }
+                                    $replacement = $authorstr;
+                                } elseif ($field === 'authors_long') {
+                                    $sep = $this->config->get('plugins.pubmed.formats.author_sep', ', ');
+                                    $replacement = htmlspecialchars(implode($sep, $record['authors']));
+                                } else {
+                                    $replacement = htmlspecialchars($record[$field]);
                                 }
-                                $replacement = $authorstr;
-                            } elseif ($field === 'authors_long') {
-                                $sep = $this->config->get('plugins.pubmed.formats.author_sep', ', ');
-                                $replacement = htmlspecialchars(implode($sep, $record['authors']));
-                            } else {
-                                $replacement = htmlspecialchars($record[$field]);
+                                $text = str_replace(
+                                    '[' . $field . ']', 
+                                    '<span class="' . $field . '">' . $replacement . '</span>', 
+                                    $text);
                             }
-                            $text = str_replace(
-                                '[' . $field . ']', 
-                                '<span class="' . $field . '">' . $replacement . '</span>', 
-                                $text);
                         }
                         $recs = $recs . '<p>' . $text . '</p>' . "\n";
                         /*
