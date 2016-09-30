@@ -2,6 +2,8 @@
 
 The **Pubmed** Plugin is for [Grav CMS](http://github.com/getgrav/grav). It uses the [National Center for Biotechnology Information's](https://www.ncbi.nlm.nih.gov/) [E-utils API](https://www.ncbi.nlm.nih.gov/books/NBK25500/) to access pubmed information about publications. This is accomplished by passing UIDs via a special shortcode.
 
+For a demo, [visit my blog](https://perlkonig.com/demos/pubmed).
+
 ## Installation
 
 Installing the Pubmed plugin can be done in one of two ways. The GPM (Grav Package Manager) installation method enables you to quickly and easily install the plugin with a simple terminal command, while the manual method enables you to do so via a zip file.
