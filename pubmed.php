@@ -112,7 +112,7 @@ class PubmedPlugin extends Plugin
                             $text = '<strong>' . htmlspecialchars($record['error']) . '</strong>';
                         } else {
                             $text = $format;
-                            $text = str_replace('\n', '<br>', $text);
+                            $text = str_replace("\n", '<br/>', $text);
                             foreach (['uid', 'title', 'authors_short', 'authors_long', 'journal', 'volume', 'pages', 'date'] as $field) {
                                 $replacement = '';
                                 if ($field === 'authors_short') {
