@@ -131,6 +131,10 @@ class PubmedPlugin extends Plugin
                                     '[' . $field . ']', 
                                     '<span class="' . $field . '">' . $replacement . '</span>', 
                                     $text);
+                                $text = str_replace(
+                                    '[' . $field . ' raw]', 
+                                    strip_tags($replacement),
+                                    $text);
                             }
                         }
                         $recs = $recs . '<p>' . $text . '</p>' . "\n";
