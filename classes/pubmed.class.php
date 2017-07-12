@@ -5,10 +5,10 @@ use Grav\Common\GPM\Response;
 
 class PubMed {
 	
-	//the geoPlugin server
+	//the pubmed server
 	var $host = 'http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id={IDS}';
 		
-	//initiate the geoPlugin vars
+	//initiate the pubmed vars
 	var $response = null;
 	var $summary = null;
 	var $extract = null;
@@ -20,7 +20,6 @@ class PubMed {
 	var $date = null;
 	
 	function PubMed() {
-
 	}
 	
 	function get_summary($cache, $idstr) {

@@ -1,5 +1,5 @@
 name: Pubmed
-version: 1.0.2
+version: 2.0.0
 description: Adds Pubmed citations pulled from the E-utils API
 icon: heartbeat
 author:
@@ -12,6 +12,9 @@ readme: https://github.com/Perlkonig/grav-plugin-pubmed/blob/master/README.md
 demo: https://perlkonig.com/demos/pubmed
 license: MIT
 
+dependencies:
+  - shortcode-core
+  
 form:
   validation: strict
   fields:

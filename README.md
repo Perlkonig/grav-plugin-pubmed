@@ -24,28 +24,23 @@ You should now have all the plugin files under
 
     /your/site/grav/user/plugins/pubmed
 	
-> NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav), the [Error](https://github.com/getgrav/grav-plugin-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) plugins, and a theme to be installed in order to operate.
+> NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav); the [Error](https://github.com/getgrav/grav-plugin-error), [Problems](https://github.com/getgrav/grav-plugin-problems), and [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) plugins; and a theme to be installed in order to operate.
 
 ## Usage
 
-The shortcode contains the following parts:
+This plugin extends the [Shortcode Core](https://github.com/getgrav/grav-plugin-shortcode-core) interface. It accepts two parameters:
 
-  - The string `[pubmed>`
-  - Followed by one of the three commands:
+  - `type`, which must be one of the following:
     - `short`
     - `long`
     - `summary`
-  - Followed by a colon (`:`)
-  - Followed by a list of UIDs separated by commas (no spaces!)
-  - And finally a closing bracket (`]`)
+  - `ids`, which must be a list of UIDs separated by commas (no spaces!)
 
 The following are valid shortcodes:
 
-  - `[pubmed>short:11111]`
-  - `[pubmed>long:11111,22222]`
-  - `[pubmed>summary:11111,22222,33333]`
-
-These are block elements. Each shortcode is replaced by a `<div>` containing the data. 
+  - `[pubmed type=short ids=11111]`
+  - `[pubmed type=long ids=11111,22222]`
+  - `[pubmed type=summary ids=11111,22222,33333]`
 
 The expanded shortcode *is* cached. The UID string and results are also cached so that if you have multiple pages citing the same UID string, only one external API call will be made.
 
@@ -55,11 +50,12 @@ If an error occurs, the `short` or `long` output will be replaced by a message s
 
 ## Configuration
 
+To change the configuration, copy `pubmed.yaml` from the `plugins/pubmed` folder into your `config/plugins` folder. That way, if the plugin gets updated, your custom configuration is not lost.
+
 The default configuration is as follows:
 
 ```
 enabled: true
-active: false
 
 # Formats are a string that only contain 
 #   - valid field names enclosed in square brackets
@@ -85,18 +81,7 @@ formats:
   author_sep: ", "  # string that is inserted between list of authors when using [authors_long]
 ```
 
-To change the configuration, copy `pubmed.yaml` from the `plugins/pubmed` folder into your `config/plugins` folder. That way, if the plugin gets updated, your custom configuration is not lost.
-
 - `enabled` tells Grav to run the plugin. If you set this to `false`, the plugin will be fully disabled and the shortcodes will print as is.
-
-- `active` makes it possible to only run the plugin on specific pages. In the header of the page that includes the shortcode, put the following in the header:
-
-  ```
-  pubmed:
-    active: true
-  ```
-
-  Alternatively, you can set `active` to `true` in the base config and the plugin will search all pages for the shortcode.
 
 - `formats` gives you flexibility over how the `short` and `long` versions are formatted. The embedded instructions are hopefully self-explanatory.
 

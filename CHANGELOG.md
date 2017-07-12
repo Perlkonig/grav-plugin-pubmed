@@ -1,3 +1,12 @@
+# v2.0.0
+##  07/12/2017
+
+1. [](#new)
+    * Moved to a proper shortcode. NOT BACKWARDS COMPATIBLE!
+    * Added the "raw" tag to make it possible to embed fields in links. (Thanks, @franciscodavid!)
+2. [](#bugfix)
+    * Fixed problem where line breaks weren't translated correctly.
+
 # v1.0.2
 ##  09/30/2016
 
