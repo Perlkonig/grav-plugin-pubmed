@@ -66,6 +66,6 @@ class PubmedShortcode extends Shortcode
                 }
             }
         }
-        return $recs;
+        return '<div class="pubmed">' . $recs . '</div>';
     }
 }

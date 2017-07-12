@@ -1,3 +1,9 @@
+# v2.0.2
+##  07/12/2017
+
+1. [](#bugfix)
+    * Added the named `<div></div>` back in that was lost when I moved to the shortcode interface.
+
 # v2.0.1
 ##  07/12/2017
 

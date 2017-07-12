@@ -48,6 +48,8 @@ You can customize the exact contents of the `short` and `long` citation as descr
 
 If an error occurs, the `short` or `long` output will be replaced by a message stating there was a problem fetching that UID.
 
+Each citation is enclosed in a named `<div></div>` for easy styling. See the **Customization** section.
+
 ## Configuration
 
 To change the configuration, copy `pubmed.yaml` from the `plugins/pubmed` folder into your `config/plugins` folder. That way, if the plugin gets updated, your custom configuration is not lost.
@@ -87,5 +89,5 @@ formats:
 
 ## Customization
 
-Each element of the citation has a class assigned to it for easy styling. Copy the `pubmed.css` file from the `plugins/pubmed/assets` folder and add it to your theme's ``assets`` folder. Edit as you see fit.
+Each citation is enclosed in a named `<div></div>`. Each element of the citation also has a class assigned to it for easy styling. Copy the `pubmed.css` file from the `plugins/pubmed/assets` folder and add it to your theme's ``assets`` folder. Edit as you see fit.
 
