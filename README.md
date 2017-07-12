@@ -75,10 +75,13 @@ active: false
 #   - volume
 #   - pages
 #   - date
+#
+# Raw fields are fields not embedded into <span></span> tags.
+# They are suitable to build links, for instance.
 
 formats:
   short: "[authors_short] [journal] [volume] [pages] [date]"
-  long: "[title]\n[authors_long] [journal] [volume] [pages] [date]"
+  long: "<a href='https://www.ncbi.nlm.nih.gov/pubmed/[uid raw]'>[title]</a>\n[authors_long] [journal] [volume] [pages] [date]"
   author_sep: ", "  # string that is inserted between list of authors when using [authors_long]
 ```
 
