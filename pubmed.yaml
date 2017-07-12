@@ -2,7 +2,7 @@ enabled: true
 
 # Formats are a string that only contain 
 #   - valid field names enclosed in square brackets
-#   - line breaks encoded as the string "\n"
+#   - HTML is permitted, so insert <br> for line breaks
 #   - other literals (printed as is)
 #
 # Valid field names are as follows (case sensitive!)
@@ -19,5 +19,5 @@ enabled: true
 
 formats:
   short: "[authors_short] [journal] [volume] [pages] [date]"
-  long: '<a href="https://www.ncbi.nlm.nih.gov/pubmed/[uid raw]">[title]</a>\n[authors_long] [journal] [volume] [pages] [date]'
+  long: '<a href="https://www.ncbi.nlm.nih.gov/pubmed/[uid raw]">[title]</a><br>[authors_long] [journal] [volume] [pages] [date]'
   author_sep: ", "  # string that is inserted between list of authors when using [authors_long]

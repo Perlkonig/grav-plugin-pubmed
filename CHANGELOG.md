@@ -1,3 +1,9 @@
+# v2.0.1
+##  07/12/2017
+
+1. [](#bugfix)
+    * Truly fixed line break problem. Just include `<br>` in the formatting string.
+
 # v2.0.0
 ##  07/12/2017
 
